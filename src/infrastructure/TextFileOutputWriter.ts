@@ -1,15 +1,17 @@
 import { OutputWriter } from "../domain/OutputWriter"
 import { Robot } from "../domain/robot"
+import { OutputTextTransformer } from "./OutputTextTransformer"
 
 export class TextFileOutputWriter implements OutputWriter {
   
   constructor (
     private readonly fileUrl: string,
-    private readonly fileSystem: any
+    private readonly fileSystem: any,
+    private readonly outputTextTransformer: OutputTextTransformer
   ) {}
 
   write (robots: Robot[]) {
-    const content = robots.toString().replace(/,/g, '\n')
+    const content = this.outputTextTransformer.toText(robots)
     this.fileSystem.writeFile(this.fileUrl, content, (err: any) => {
       if (err) {
         console.error(err)

@@ -24,8 +24,8 @@ export class Robot {
     this.isLost = isLost
   }
 
-  toString (): string {
-    // 3 3 N LOST
-    return `${this.position.x} ${this.position.y} ${this.orientation}${this.isLost ? ' LOST' : ''}`
-  }
+  // toString (): string {
+  //   // 3 3 N LOST
+  //   return `${this.position.x} ${this.position.y} ${this.orientation}${this.isLost ? ' LOST' : ''}`
+  // }
 }

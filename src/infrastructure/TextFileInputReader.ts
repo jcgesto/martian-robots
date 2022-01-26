@@ -1,9 +1,9 @@
-import { Instruction } from '../domain/instruction';
-import { Orientation } from '../domain/orientation';
-import { Position } from '../domain/position';
 import { InputReader } from '../domain/InputReader'
 import { InputData } from '../domain/InputData';
 import { RobotSequence } from '../domain/RobotSequence';
+import { Instruction } from '../domain/Instruction';
+import { Position } from '../domain/Position';
+import { Orientation } from '../domain/Orientation';
 
 
 export class TextFileInputReader implements InputReader {
@@ -16,6 +16,8 @@ export class TextFileInputReader implements InputReader {
   read(): InputData {
 
     const content = this.fileSystem.readFileSync(this.fileUrl,'utf8');
+    this.log(content)
+    
     const array = content.replace(/\r/g, '').split('\n');
     const upperRightCorner: Position = this.parseInitialPosition(array[0]);
 
@@ -31,6 +33,13 @@ export class TextFileInputReader implements InputReader {
       upperRightCorner,
       robotSequences
     }
+  }
+
+  private log (content: string) {
+    console.log('Input file content:')
+    console.log('´´´')
+    console.log(content)
+    console.log('´´´\n')
   }
 
   parseInitialPosition (string: string): Position {

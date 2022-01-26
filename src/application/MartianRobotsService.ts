@@ -2,7 +2,7 @@ import { Position } from "../domain/Position"
 import { Robot } from "../domain/robot"
 import { RobotSequence } from "../domain/RobotSequence"
 import { Scent } from "../domain/Scent"
-import { InstructionExecuterFactory } from "./InstructionExecuterFactory"
+import { InstructionExecuterFactory } from './instruction-executers/InstructionExecuterFactory'
 
 export class MartianRobotsService {
   
@@ -27,6 +27,7 @@ export class MartianRobotsService {
           position: robot.position
         })
       }
+      result.push(robot)
     })
     return result
   }

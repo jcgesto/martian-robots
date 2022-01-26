@@ -1,13 +1,13 @@
-import { MartianRobots } from "./martian-robots"
-import { readInput } from "./read-input"
-import { TextFileInputReader } from "./src/infrastructure/text-file-input-reader"
-import { TextFileOutputWriter } from "./src/infrastructure/text-file-output-writer"
 import * as fs from 'fs';
+import { MartianRobotsService } from './src/application/MartianRobotsService';
+import { MartianRobots } from './src/infrastructure/MartianRobots';
+import { TextFileInputReader } from './src/infrastructure/TextFileInputReader';
+import { TextFileOutputWriter } from './src/infrastructure/TextFileOutputWriter';
 
-console.log('Martian Robots')
-console.log(readInput())
+console.log('MARTIAN ROBOTS\n')
 
 const textFileInputReader = new TextFileInputReader('input.txt', fs)
 const textFileOutputWriter = new TextFileOutputWriter('output.txt', fs)
-const martianRobots = new MartianRobots(textFileInputReader, textFileOutputWriter)
+const martianRobotsService = new MartianRobotsService()
+const martianRobots = new MartianRobots(textFileInputReader, textFileOutputWriter, martianRobotsService)
 martianRobots.run()

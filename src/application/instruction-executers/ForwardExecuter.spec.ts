@@ -7,7 +7,7 @@ const forwardExecuter = new ForwardExecuter()
 
 describe('ForwardExecuter', () => {
   describe('execute', () => {
-    it('Should change robot as expected', () => {
+    it('Should change robot as expected - North', () => {
       const robot = new Robot(
         new Position(2, 2),
         new Position(0, 0),
@@ -16,6 +16,39 @@ describe('ForwardExecuter', () => {
       )
       forwardExecuter.execute(robot)
       expect(robot.position).toEqual(new Position(0, 1))
+    })
+
+    it('Should change robot as expected - South', () => {
+      const robot = new Robot(
+        new Position(2, 2),
+        new Position(2, 2),
+        Orientation.SOUTH,
+        []
+      )
+      forwardExecuter.execute(robot)
+      expect(robot.position).toEqual(new Position(2, 1))
+    })
+
+    it('Should change robot as expected - East', () => {
+      const robot = new Robot(
+        new Position(2, 2),
+        new Position(0, 0),
+        Orientation.EAST,
+        []
+      )
+      forwardExecuter.execute(robot)
+      expect(robot.position).toEqual(new Position(1, 0))
+    })
+
+    it('Should change robot as expected - West', () => {
+      const robot = new Robot(
+        new Position(2, 2),
+        new Position(2, 0),
+        Orientation.WEST,
+        []
+      )
+      forwardExecuter.execute(robot)
+      expect(robot.position).toEqual(new Position(1, 0))
     })
 
     it('Should set isLost as expected', () => {

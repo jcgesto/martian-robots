@@ -8,11 +8,11 @@ export class ForwardExecuter implements InstructionExecuter {
   execute(robot: Robot): Robot {
 
     if (robot.isLost) {
-      return;
+      return robot;
     }
 
     if (!this.isForwardAllowed(robot)) {
-      return;
+      return robot;
     }
 
     let newPosition: Position;
@@ -32,7 +32,7 @@ export class ForwardExecuter implements InstructionExecuter {
         x: robot.position.x + 1,
         y: robot.position.y
       };
-    } else if (robot.orientation === Orientation.WEST) {
+    } else {
       newPosition = {
         x: robot.position.x - 1,
         y: robot.position.y

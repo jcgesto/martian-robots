@@ -4,6 +4,8 @@ import { Orientation } from "../../domain/Orientation";
 import { Position } from "../../domain/Position";
 import { RobotSequence } from "../../domain/RobotSequence";
 
+const MAX_ROBOT_INSTRUCTIONS = 100
+
 export class TextFileInputParser {
 
   parse(content: string): InputData {
@@ -44,7 +46,7 @@ export class TextFileInputParser {
 
   parseInstructions (string: string): Instruction[] {
     const chars = [...string];
-    if (chars.length > 100) {
+    if (chars.length > MAX_ROBOT_INSTRUCTIONS) {
       throw new Error('TextFileInputParser - Parse instructions: number of instructions is greater than 100')
     }
     return chars.map((char) => this.parseInstruction(char))

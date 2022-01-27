@@ -25,7 +25,7 @@ export class TextFileOutputWriter implements OutputWriter {
   private log (content: string) {
     console.log(`Output file "${this.fileUrl}" written succesfully`)
     if (this.debug) {
-      console.log('Output file content:')
+      console.log('\nOutput file content:')
       console.log('´´´')
       console.log(content)
       console.log('´´´\n')

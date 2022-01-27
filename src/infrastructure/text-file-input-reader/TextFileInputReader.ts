@@ -2,7 +2,6 @@ import { InputData } from "../../domain/InputData";
 import { InputReader } from "../../domain/InputReader";
 import { TextFileInputParser } from "./TextFileInputParser";
 
-
 export class TextFileInputReader implements InputReader {
   
   constructor (
@@ -13,14 +12,7 @@ export class TextFileInputReader implements InputReader {
 
   read(): InputData {
     const content = this.fileSystem.readFileSync(this.fileUrl,'utf8');
-    this.log(content)
+    console.log(`Input file "${this.fileUrl}" read succesfully`)
     return this.textInputFileParser.parse(content)
-  }
-
-  private log (content: string) {
-    console.log('Input file content:')
-    console.log('´´´')
-    console.log(content)
-    console.log('´´´\n')
   }
 }

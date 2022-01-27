@@ -17,15 +17,15 @@ export class Robot {
     scents: Scent[],
     isLost: boolean = false
   ) {
+
+    if (position.x > upperRightCorner.x || position.y > upperRightCorner.y) {
+      throw new Error(`Robot - Robot position not valid: upper right corner ${upperRightCorner.toString()}, robot position ${position.toString()}`)
+    }
+
     this.upperRightCorner = upperRightCorner
     this.position = position
     this.orientation = orientation
     this.scents = scents
     this.isLost = isLost
   }
-
-  // toString (): string {
-  //   // 3 3 N LOST
-  //   return `${this.position.x} ${this.position.y} ${this.orientation}${this.isLost ? ' LOST' : ''}`
-  // }
 }

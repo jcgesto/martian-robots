@@ -1,6 +1,6 @@
-import { Orientation } from "../domain/Orientation"
-import { Position } from "../domain/Position"
-import { Robot } from "../domain/robot"
+import { Orientation } from "../../domain/Orientation"
+import { Position } from "../../domain/Position"
+import { Robot } from "../../domain/Robot"
 import { OutputTextTransformer } from "./OutputTextTransformer"
 
 describe('OutputTextTransformer', () => {

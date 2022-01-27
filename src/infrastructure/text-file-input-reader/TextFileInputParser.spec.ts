@@ -1,6 +1,6 @@
-import { InputData } from "../domain/InputData"
-import { Instruction } from "../domain/instruction"
-import { Orientation } from "../domain/orientation"
+import { InputData } from "../../domain/InputData"
+import { Instruction } from "../../domain/Instruction"
+import { Orientation } from "../../domain/Orientation"
 import { TextFileInputParser } from "./TextFileInputParser"
 
 describe('TextFileInputReader', () => {
@@ -69,7 +69,7 @@ FFF`
 
   describe('parseInitialPosition', () => {
     it('Should return the expected initial position', () => {
-      expect(textFileInputReader.parseInitialPosition('5 3')).toEqual({
+      expect(textFileInputReader.parsePosition('5 3')).toEqual({
         x: 5,
         y: 3
       })

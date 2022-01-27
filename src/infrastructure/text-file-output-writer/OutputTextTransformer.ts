@@ -1,4 +1,4 @@
-import { Robot } from "../domain/robot";
+import { Robot } from "../../domain/robot"
 
 export class OutputTextTransformer {
 

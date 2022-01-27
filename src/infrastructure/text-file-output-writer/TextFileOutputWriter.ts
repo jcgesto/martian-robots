@@ -1,5 +1,5 @@
-import { OutputWriter } from "../domain/OutputWriter"
-import { Robot } from "../domain/robot"
+import { OutputWriter } from "../../domain/OutputWriter"
+import { Robot } from "../../domain/robot"
 import { OutputTextTransformer } from "./OutputTextTransformer"
 
 export class TextFileOutputWriter implements OutputWriter {
@@ -7,7 +7,8 @@ export class TextFileOutputWriter implements OutputWriter {
   constructor (
     private readonly fileUrl: string,
     private readonly fileSystem: any,
-    private readonly outputTextTransformer: OutputTextTransformer
+    private readonly outputTextTransformer: OutputTextTransformer,
+    private readonly debug: boolean = false
   ) {}
 
   write (robots: Robot[]) {
@@ -22,9 +23,12 @@ export class TextFileOutputWriter implements OutputWriter {
   }
 
   private log (content: string) {
-    console.log('Output file content:')
-    console.log('´´´')
-    console.log(content)
-    console.log('´´´\n')
+    console.log(`Output file "${this.fileUrl}" written succesfully`)
+    if (this.debug) {
+      console.log('Output file content:')
+      console.log('´´´')
+      console.log(content)
+      console.log('´´´\n')
+    }
   }
 }

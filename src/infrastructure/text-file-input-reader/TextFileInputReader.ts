@@ -1,6 +1,7 @@
-import { InputReader } from '../domain/InputReader'
-import { InputData } from '../domain/InputData';
-import { TextFileInputParser } from './TextFileInputParser';
+import { InputData } from "../../domain/InputData";
+import { InputReader } from "../../domain/InputReader";
+import { TextFileInputParser } from "./TextFileInputParser";
+
 
 export class TextFileInputReader implements InputReader {
   
